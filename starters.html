@@ -1,0 +1,720 @@
+<html>
+    <head>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            img{
+                height:125px;
+                width:125px;
+                border: 4px solid black;
+            }
+
+            th{
+                font-family: fantasy;
+                font-size: 20px;
+                text-decoration: underline;
+            }
+
+            td{
+                font-family: cursive;
+                font-size: 20px;
+                font-weight: 700;
+
+            }
+
+            .navigation{
+                position:fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .menu{
+                color: rgb(215, 56, 38);
+                font-size: 20px;
+                border-radius: 0;
+                border: 3px solid rgb(7, 7, 8);
+                box-shadow: 4px 4px rgb(240, 240, 88);
+                background-color: rgb(223, 223, 29);
+            }
+
+            .menu:hover{
+                font-size: 24px;
+                border: 3px solid rgb(7, 7, 8);
+                box-shadow: 4px 4px rgb(240, 240, 88);
+                background-color: rgb(223, 223, 29);
+            }
+
+            .navigationButton{
+                color: rgb(6, 6, 7);
+                font-size: 20px;
+                box-shadow: 3.5px 3.5px rgb(180, 231, 49);
+                border: 3px solid rgb(180, 231, 49);
+                color: #0e0e0d;
+                font-family: cursive;
+                cursor: pointer;
+                
+                
+            }
+            .navigationButton:hover{
+                border: 4px solid rgb(88, 58, 240);
+                box-shadow: 4px 4px rgb(88, 58, 240) ;
+                font-size: 21px; 
+            }
+
+            .navigationButton:active{
+                background-color: red;
+            }            
+
+            .otherThanCart{
+                background-image: url("menu2.jpg");
+                background-size: 50%;
+                position: absolute;
+                width: 1350px;
+                left: 0px;
+                top: 0px;
+
+            }
+
+            .cart{
+                background-color: black;
+                position: absolute;
+                color: white;
+                left: 1351px;
+                top: 0px;
+                width: 167px;
+                height: 4628px;
+                font-family: cursive;
+                font-size: 25px;
+                text-decoration: none;
+                border: 3px;
+            }
+
+            #it1,#it2,#it3,#it4,#it5,#it6,#it7,#it8,#it9,#it10,
+            #it11,#it12,#it13,#it14,#it15,#it16,#it17,#it18,#it19,
+            #it20,#it21,#total{
+                font-family: cursive;
+                font-size: 16px;
+                color: white;
+                text-shadow: 0 0;
+                border: 0;
+                font-weight: 100;
+            }
+
+            #add{
+                border-top-style: 3px solid;
+                border-bottom-style: 3px solid;
+                border-left-style: 3px double;
+                border-right-style: 3px double;
+                box-shadow: 3px 3px black;
+                cursor: pointer;
+                font-weight: 300;
+                border-color: rgb(11, 11, 11);
+                font-size: 15px;
+                font-family: serif;
+            }
+
+            #add:hover{
+                background-color: rgb(192, 181, 181);
+            }
+
+            #payamount{
+                border: 3px;
+                box-shadow: 4px 4px gray;
+                background-color: rgb(213, 231, 247);
+                font-size: 17px;
+                font-weight: bold;
+                font-family: Cochin;
+                color: black;
+                cursor: pointer;
+            }
+
+            #payamount:hover{
+                font-size: 19px;
+                opacity: 0.8;
+            }
+
+            #payamount:active{
+                background-color: rgb(239, 112, 112);
+            }
+
+            select{
+                border: 3px solid black;
+                box-shadow: 4px 4px black;
+                font-size: 15px;
+                cursor: pointer;
+                font-weight: 300;
+                border-color: rgb(11, 11, 11);
+            }
+
+            select:hover{
+                background-color: rgb(192, 181, 181);
+            }
+        </style>
+    </head>
+    <body onload="totalPrice()">
+        <div class="cart">
+            <br>
+            <i id="addeditems">ADDED ITEMS</i>
+            <p id="it1"></p><p id="it2"></p><p id="it3"></p><p id="it4"></p><p id="it5"></p><p id="it6"><p id="it7"></p><p id="it8"></p>
+            <p id="it9"></p><p id="it10"></p><p id="it11"></p><p id="it12"></p><p id="it13"></p><p id="it14"></p><p id="it15"></p>
+            <p id="it16"><p id="it17"><p id="it18"><p id="it19"><p id="it20"></p><p id="total"></p><p id="it21"></p>
+            <button id="payamount" onclick="payAmt()">PAY AMOUNT</button>
+        </div>
+        <div class="otherThanCart">
+            <div class="navigation">
+                <br><br><br>
+                <a href="#starters"><button class="navigationButton">STARTERS</button></a><br><br><br>
+                <a href="#curry"><button class="navigationButton">CURRIES</button></a><br><br><br>
+                <a href="#roti"><button class="navigationButton">ROTI</button></a><br><br><br>
+                <a href="#rice"><button class="navigationButton">RICE</button></a><br><br><br>
+                <a href="#dessert"><button class="navigationButton">DESSERT</button></a>
+            </div>
+            <br><br><br>
+            <table cellspacing="0px" cellpadding="0px" align="center" id="starters">
+                <tr align="center">
+                    <th></th>
+                    <th>STARTERS</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                </tr>
+                <tr align="center">
+                    <td><img src="tomatosoup.jpeg"></td>
+                    <td>TOMATO SOUP<br><i> A soup with tomatoes as the primary ingredient.Smooth, savory tomato<br> soup is a delicious dish that is great to enjoy anytime of the year.</i></td>
+                    <td>Rs.30</td>
+                    <td>
+                        <select id="tomatosoup">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td><button onclick="tomatoSoupAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="sweetcorn.jpeg"></td>
+                    <td>SWEET CORN SOUP<br><i>Sweet corn soup is a Indo Chinese style soup made<br> with mixed veggies, sweet corn kernels & pepper</i></td>
+                    <td>Rs.30</td>
+                    <td>
+                        <select id="sweetcornsoup">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td><button onclick="sweetCornSoupAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="gobimanchurian.jpeg"></td>
+                    <td>GOBI MANCHURIAN<br><i>Gobi Manchurian is a popular Indo Chinese dish of batter coated pan fried <br>cauliflower florets tossed with a spicy, sweet and sour sauce.</i></td>
+                    <td>Rs.65</td>
+                    <td>
+                        <select id="gobimanchurian">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><button onclick="gobiManchurianAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="paneertikka.jpeg"></td>
+                    <td>PANEER TIKKA<br><i> Paneer are marinated in a spiced yogurt-based<br> marinade, arranged on skewers and grilled in the oven.</i></td>
+                    <td>Rs.100</td>
+                    <td>
+                        <select id="paneertikka">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td><button onclick="paneerTikkaAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+            </table><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><b><br><br>
+            <table cellspacing="0px" cellpadding="0px" align="center" id="curry">
+                <tr align="center">
+                    <th></th>
+                    <th>CURRIES</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                </tr>
+                <tr align="center">
+                    <td><img src="kadhaipaneer.jpeg"></td>
+                    <td>KADHAI PANEER<br><i>Indian Cottage Cheese and bell peppers are cooked in <br>freshly ground spicy masala! Kadai Paneer is one of the most popular Indian<br> paneer recipes and is best enjoyed with naan or roti!</i></td>
+                    <td>Rs.150</td>
+                    <td>
+                        <select id="kadhaipaneer">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            
+                        </select>
+                    </td>
+                    <td><button onclick="kadhaiPaneerAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="mixveg.jpg"></td>
+                    <td>MIX VEG<br><i>Made by cooking a mixture of vegetables together in a traditional <br>Indian onion-tomato gravy. The dish is characterized by multiple flavors due<br> to the addition of many vegetables which also makes it quite nutritious.<br> with mixed veggies, sweet corn kernels & pepper</i></td>
+                    <td>Rs.130</td>
+                    <td>
+                        <select id="mixveg">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            
+                        </select>
+                    </td><td><button onclick="mixVegAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="dalmakhani.jpg"></td>
+                    <td>DAL MAKHANI<br><i>One of the most popular lentil recipes from the North Indian Punjabi <br>cuisine made with Whole Black Lentils and Kidney Beans.</i></td>
+                    <td>Rs.100</td>
+                    <td>
+                        <select id="dalmakhani">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="dalMakhaniAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="sarsonkasaag.jpg"></td>
+                    <td>SARSON KA SAAG<br><i>Made from mustard greens and spices such as ginger and garlic.</i></td>
+                    <td>Rs.180</td>
+                    <td>
+                        <select id="sarsonkasaag">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="sarsonKaSaagAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+            </table><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br>
+            <table cellspacing="10px" cellpadding="7px" align="center" id="roti">
+                <tr align="center">
+                    <th></th>
+                    <th>ROTI</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th></th>
+                </tr>
+                <tr align="center">
+                    <td><img src="tandooriroti.jpg"></td>
+                    <td>TANDOORI ROTI<br></td>
+                    <td>Rs.20</td>
+                    <td>
+                        <select id="tandooriroti">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </td><td><button onclick="tandooriRotiAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="naan.jpeg"></td>
+                    <td>NAAN<br></td>
+                    <td>Rs.20</td>
+                    <td>
+                        <select id="naan">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td><td><button onclick="naanAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="rumaliroti.jpeg"></td>
+                    <td>RUMALI ROTI<br></td>
+                    <td>Rs.25</td>
+                    <td>
+                        <select id="rumaliroti">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="rumaliRotiAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="porota.jpeg"></td>
+                    <td>PAROTA<br></td>
+                    <td>Rs.15</td>
+                    <td>
+                        <select id="parota">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="parotaAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+            </table><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br>
+            <table cellspacing="5px" cellpadding="7px" align="center" id="rice">
+                <tr align="center">
+                    <th></th>
+                    <th>RICE</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th></th>
+                </tr>
+                <tr align="center">
+                    <td><img src="vegbiryani.jpg"></td>
+                    <td>VEG BIRYANI<br><i> steamy pot full of aromatic biryani<br> packed with masala and your favourite veggies.</i></td>
+                    <td>Rs.130</td>
+                    <td>
+                        <select id="vegbiryani">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td><td><button onclick="vegBiryaniAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="jeerarice.jpeg"></td>
+                    <td>JEERA RICE<br><i>Fragrant basmati rice is scented with<br> cumin seeds, cardamom and green chilli for <br>lovely, long grains that pair beautifully <br>with just about any of your favorite mains.</i></td>
+                    <td>Rs.80</td>
+                    <td>
+                        <select id="jeerarice">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td><td><button onclick="jeeraRiceAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="veghydbiryani.jpeg"></td>
+                    <td>VEG HYDERABADI BIRYANI<br><i>authentic Indian vegetarian recipe packed<br> full of your favorite rice, veggies, and spices.</i></td>
+                    <td>Rs.160</td>
+                    <td>
+                        <select id="veghydbiryani">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="vegHydBiryaniAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+                <tr align="center">
+                    <td><img src="vegfriedrice.jpeg"></td>
+                    <td>VEG FRIED RICE<br><i>  dish of cooked rice that has been<br> stir-fried in a wok and is<br> usually mixed with other ingredients such <br>as vegetables.</i></td>
+                    <td>Rs.100</td>
+                    <td>
+                        <select id="vegfriedrice">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td><td><button onclick="vegFriedRiceAdd(),totalPrice()" id="add">ADD</button></td>
+                </tr>
+            </table>
+        </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <table cellspacing="10px" cellpadding="7px" align="center" id="dessert">
+            <tr align="center">
+                <th></th>
+                <th>DESSERTS</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th></th>
+            </tr>
+            <tr align="center">
+                <td><img src="icecream.jpeg"></td>
+                <td>ICE CREAM<br></td>
+                <td>Rs.50</td>
+                <td>
+                    <select id="icecream">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td><td><button onclick="iceCreamAdd(),totalPrice()" id="add">ADD</button></td>
+            </tr>
+            <tr align="center">
+                <td><img src="brownie.jpeg"></td>
+                <td>BROWNIE<br></td>
+                <td>Rs.60</td>
+                <td>
+                    <select id="brownie">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td><td><button onclick="brownieAdd(),totalPrice()" id="add">ADD</button></td>
+            </tr>
+            <tr align="center">
+                <td><img src="waffle.jpeg"></td>
+                <td>WAFFLES<br></td>
+                <td>Rs.100</td>
+                <td>
+                    <select id="waffle">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td><td><button onclick="waffleAdd(),totalPrice()" id="add">ADD</button></td>
+            </tr>
+            <tr align="center">
+                <td><img src="gulabjamun.jpg"></td>
+                <td>GULAB JAMUN<br></td>
+                <td>Rs.50</td>
+                <td>
+                    <select id="gulabjamun">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td><td><button onclick="gulabJamunAdd(),totalPrice()" id="add">ADD</button></td>
+            </tr>
+        </table>
+        </div>
+
+        <script>
+            function tomatoSoupAdd(){
+                var ts = Number(document.getElementById("tomatosoup").value);
+                var price = 0;
+                if(ts != 0){
+                    price = 30 * ts;
+                    document.getElementById("it1").innerHTML = ts+" Tomato Soup "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function sweetCornSoupAdd(){
+                var ts = Number(document.getElementById("sweetcornsoup").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 30 * ts;
+                    document.getElementById("it2").innerHTML = ts+" Sweet Corn Soup "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function gobiManchurianAdd(){
+                var ts = Number(document.getElementById("gobimanchurian").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 65 * ts;
+                    document.getElementById("it3").innerHTML = ts+" Gobi manchurian "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function paneerTikkaAdd(){
+                var ts = Number(document.getElementById("paneertikka").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 100 * ts;
+                    document.getElementById("it4").innerHTML = ts+" Paneer Tikka "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function kadhaiPaneerAdd(){
+                var ts = Number(document.getElementById("kadhaipaneer").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 150 * ts;
+                    document.getElementById("it5").innerHTML = ts+" Kadhai Paneer "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function mixVegAdd(){
+                var ts = Number(document.getElementById("mixveg").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 100 * ts;
+                    document.getElementById("it6").innerHTML = ts+" Mix Veg "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function dalMakhaniAdd(){
+                var ts = Number(document.getElementById("dalmakhani").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 100 * ts;
+                    document.getElementById("it7").innerHTML = ts+" Dal Makhani "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function sarsonKaSaagAdd(){
+                var ts = Number(document.getElementById("sarsonkasaag").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 180 * ts;
+                    document.getElementById("it8").innerHTML = ts+" Sarson Ka Saag "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function vegBiryaniAdd(){
+                var ts = Number(document.getElementById("vegbiryani").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 130 * ts;
+                    document.getElementById("it9").innerHTML = ts+" Veg Biryani "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function jeeraRiceAdd(){
+                var ts = Number(document.getElementById("jeerarice").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 80 * ts;
+                    document.getElementById("it10").innerHTML = ts+" Jeera Rice "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function vegHydBiryaniAdd(){
+                var ts = Number(document.getElementById("veghydbiryani").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 160 * ts;
+                    document.getElementById("it11").innerHTML = ts+" Veg Hyderabadi Biryani "+"Rs."+price;
+                }
+                return Number(price);
+            }
+
+            function vegFriedRiceAdd(){
+                var ts = Number(document.getElementById("vegfriedrice").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 100 * ts;
+                    document.getElementById("it12").innerHTML = ts+" Veg Fried Rice "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function iceCreamAdd(){
+                var ts = Number(document.getElementById("icecream").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 50 * ts;
+                    document.getElementById("it13").innerHTML = ts+" Ice Cream "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function brownieAdd(){
+                var ts = Number(document.getElementById("brownie").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 60 * ts;
+                    document.getElementById("it14").innerHTML = ts+" Brownie "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function waffleAdd(){
+                var ts = Number(document.getElementById("waffle").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 100 * ts;
+                    document.getElementById("it15").innerHTML = ts+" Waffle "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function gulabJamunAdd(){
+                var ts = Number(document.getElementById("gulabjamun").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 50 * ts;
+                    document.getElementById("it16").innerHTML = ts+" Gulab Jamun "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function tandooriRotiAdd(){
+                var ts = Number(document.getElementById("tandooriroti").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 20 * ts;
+                    document.getElementById("it17").innerHTML = ts+" Tandoori Roti "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function naanAdd(){
+                var ts = Number(document.getElementById("naan").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 20 * ts;
+                    document.getElementById("it18").innerHTML = ts+" Naan "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function rumaliRotiAdd(){
+                var ts = Number(document.getElementById("rumaliroti").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 25 * ts;
+                    document.getElementById("it19").innerHTML = ts+" Rumali Roti "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function parotaAdd(){
+                var ts = Number(document.getElementById("parota").value);
+                var price = 0;
+                if(ts != 0){
+                    var price = 15 * ts;
+                    document.getElementById("it20").innerHTML = ts+" Parota "+"Rs."+price;
+                }
+                return Number(price); 
+            }
+
+            function totalPrice(){
+                var totalPrice = 0;
+                totalPrice = Number(tomatoSoupAdd() + sweetCornSoupAdd() + gobiManchurianAdd() + paneerTikkaAdd() + kadhaiPaneerAdd() +
+                            mixVegAdd() + sarsonKaSaagAdd() + dalMakhaniAdd() + vegBiryaniAdd() + vegHydBiryaniAdd() + jeeraRiceAdd() +
+                            vegFriedRiceAdd() + iceCreamAdd() + brownieAdd() + waffleAdd() + gulabJamunAdd() + naanAdd() + parotaAdd() +
+                            rumaliRotiAdd() + tandooriRotiAdd());
+                document.getElementById("total").innerHTML = "Total Price is Rs."+totalPrice; 
+                return totalPrice;
+            }
+
+            function payAmt(){
+                link = "Scan to pay <br><br><img src='qrcode.jpeg'>";
+                document.getElementById("it21").innerHTML = link;
+            }
+        </script>
+    </body>
+</html>
